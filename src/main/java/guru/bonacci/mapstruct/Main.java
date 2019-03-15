@@ -35,7 +35,7 @@ public class Main {
 		SDTO s = new SDTO();
 		s.setTest("5");
 
-		S t = SMapper.MAPPER.toTarget(s);
+		S t = SMapper.MAPPER.fromDTO(s);
 		System.out.println(t.getTesting());
 	}
 }

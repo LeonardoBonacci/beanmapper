@@ -18,8 +18,6 @@ public class NSDTO {
 
 	private String something;
     private DTDTO dt;
-//	private List<BinDTO> data = new ArrayList<>();
-	private BinDTO data;
+    private List<BinDTO> datas = new ArrayList<>();
 	private Set<String> fs = new HashSet<>();
-
 }
