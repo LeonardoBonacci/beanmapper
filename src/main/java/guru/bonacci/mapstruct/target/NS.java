@@ -8,14 +8,16 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+@Data
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@Data
 public class NS {
 
 	private String something;
 	private DT dt;
 	
+//	private List<Bin> data = new ArrayList<>();
+	private Bin data;
 	private Set<String> fs = new HashSet<>();
 }

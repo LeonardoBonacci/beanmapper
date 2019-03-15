@@ -12,9 +12,11 @@ import java.util.HashSet;
 import org.junit.Test;
 
 import guru.bonacci.mapstruct.mappers.SMapper;
+import guru.bonacci.mapstruct.source.BinDTO;
 import guru.bonacci.mapstruct.source.DTDTO;
 import guru.bonacci.mapstruct.source.NSDTO;
 import guru.bonacci.mapstruct.source.SDTO;
+import guru.bonacci.mapstruct.target.Bin;
 import guru.bonacci.mapstruct.target.DT;
 import guru.bonacci.mapstruct.target.NS;
 import guru.bonacci.mapstruct.target.S;
@@ -35,6 +37,7 @@ public class SMapperTest {
 									.something("bla")
 									.dt(DTDTO.BAR)
 									.fs(new HashSet<>(Arrays.asList("a", "b")))
+									.data(new BinDTO(5, "bla bla"))
 								.build())
 				.build();
 
@@ -47,6 +50,8 @@ public class SMapperTest {
         assertEquals("bla", s.getNs().getSomething());
         assertEquals(DT.BAR, s.getNs().getDt());
         assertEquals(2, s.getNs().getFs().size());
+        assertEquals(Integer.valueOf(5), s.getNs().getData().getFid());
+        assertEquals("bla bla", s.getNs().getData().getData());
 
         System.out.println(now);
         System.out.println(s.getStartDt());
@@ -62,7 +67,7 @@ public class SMapperTest {
 	        		.sid(id)
 	        		.testing(5l)
 	        		.startDt(now)
-					.ns(NS.builder().something("").dt(DT.FOO).build())
+					.ns(NS.builder().something("").dt(DT.FOO).data(new Bin(3, "some data")).build())
         		.build();
 
         SDTO s = SMapper.MAPPER.toSource(st);
@@ -72,6 +77,8 @@ public class SMapperTest {
         assertEquals(id, s.getSid());
         assertEquals("5", s.getTest());
         assertEquals(DTDTO.FOO, s.getNs().getDt());
+        assertEquals(Integer.valueOf(3), s.getNs().getData().getFid());
+        assertEquals("some data", s.getNs().getData().getData());
 
         System.out.println(now);
         System.out.println(s.getStart());
