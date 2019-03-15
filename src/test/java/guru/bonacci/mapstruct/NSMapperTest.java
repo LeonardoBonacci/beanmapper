@@ -26,7 +26,7 @@ public class NSMapperTest {
 
 	@Test
 	public void testMappingToDTO() {
-		NS ns = NS.builder().something("bla").data(asList(new Bin(5, 123))).build();
+		NS ns = NS.builder().something("bla").data(asList(new Bin(5, "bla".getBytes()))).build();
 
 		NSDTO dto = NSMapper.MAPPER.toDTO(ns);
 		System.out.println("?????" + dto);

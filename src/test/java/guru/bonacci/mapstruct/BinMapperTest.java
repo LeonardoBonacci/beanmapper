@@ -16,7 +16,7 @@ public class BinMapperTest {
     
     @Test
     public void testMappingtoDTO() {
-		BinDTO b = BinMapper.MAPPER.toDTO(new Bin(5, 123));
+		BinDTO b = BinMapper.MAPPER.toDTO(new Bin(5, "bla".getBytes()));
 		System.out.println(b);
     }
 }

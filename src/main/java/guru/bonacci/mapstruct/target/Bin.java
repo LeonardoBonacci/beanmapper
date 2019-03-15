@@ -12,5 +12,5 @@ import lombok.NoArgsConstructor;
 public class Bin {
 
 	private Integer fid;
-	private Integer datas;
+	private byte[] datas;
 }

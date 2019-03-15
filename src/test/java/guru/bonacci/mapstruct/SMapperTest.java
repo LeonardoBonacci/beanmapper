@@ -1,9 +1,9 @@
 package guru.bonacci.mapstruct;
 
+import static java.util.Arrays.asList;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
-import static java.util.Arrays.asList;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -51,7 +51,6 @@ public class SMapperTest {
         assertEquals(DT.BAR, s.getNs().getDt());
         assertEquals(2, s.getNs().getFs().size());
         assertEquals(Integer.valueOf(5), s.getNs().getData().get(0).getFid());
-        assertEquals(Integer.valueOf("123"), s.getNs().getData().get(0).getDatas());
 
         System.out.println(now);
         System.out.println(s.getStartDt());
@@ -67,7 +66,7 @@ public class SMapperTest {
 	        		.sid(id)
 	        		.testing(5l)
 	        		.startDt(now)
-					.ns(NS.builder().something("").dt(DT.FOO).data(asList(new Bin(3, 123))).build())
+					.ns(NS.builder().something("").dt(DT.FOO).data(asList(new Bin(3, "bal".getBytes()))).build())
         		.build();
 
         SDTO s = SMapper.MAPPER.toDTO(st);
@@ -78,7 +77,6 @@ public class SMapperTest {
         assertEquals("5", s.getTest());
         assertEquals(DTDTO.FOO, s.getNs().getDt());
         assertEquals(Integer.valueOf(3), s.getNs().getDatas().get(0).getFid());
-        assertEquals("123", s.getNs().getDatas().get(0).getData());
 
         System.out.println(now);
         System.out.println(s.getStart());

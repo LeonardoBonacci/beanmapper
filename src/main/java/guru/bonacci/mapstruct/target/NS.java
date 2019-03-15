@@ -18,7 +18,6 @@ public class NS {
 
 	private String something;
 	private DT dt;
-	
 	private List<Bin> data = new ArrayList<>();
 	private Set<String> fs = new HashSet<>();
 }

@@ -1,17 +1,19 @@
 package guru.bonacci.mapstruct.qualifiers;
 
+import java.util.Base64;
+
 @BinCoder
 public class BinaryHandler {
 
     @BinDecoder
-    public Integer decode(String src) {
+    public byte[] decode(String src) {
     	System.out.println("calling decoder");
-        return Integer.valueOf(src);
+        return Base64.getDecoder().decode(src);
     }
 
     @BinEncoder
-    public String encode(Integer i) {
+    public String encode(byte[] bytes) {
     	System.out.println("calling encoder");
-        return i.toString();
+        return Base64.getEncoder().encodeToString(bytes);
     }
 }
