@@ -14,11 +14,12 @@ import lombok.NoArgsConstructor;
 public class SDTO {
 
 	private String oneWay;
-
 	private String sid;
     private String test;
     private String start;
-
     private List<String> aList;
 
+    // relevant fields
+    private NSDTO ns;
+    
 }
